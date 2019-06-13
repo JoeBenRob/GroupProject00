@@ -1,5 +1,6 @@
 
-const urlBase = "http://localhost:9966/petclinic/api";
+const urlBase = "http://localhost:9966/petclinic/api/";
+
 
 function makeRequest(requestType, url, sendData) {
     return new Promise((res, rej) => {
@@ -16,21 +17,22 @@ function makeRequest(requestType, url, sendData) {
         req.send(sendData);
     });
 }
-//Functions====
-//Function called by button====
+
+//Function called by button
 function onPressUpdateVet(id, firstName, lastName, specIDs) {
     let vet = createVet(firstName, lastName, specIDs);
     updateVet(id, vet);
 }
 
-//================
-
+function onPressGetAll(url){
+    getAll(url);
+}
 //================
 
 //====PUT REQUESTS====
 
 function updateVet(id, vetUpdate) {
-    makeRequest("PUT", `http://localhost:9966/petclinic/api/vets/${id}`, JSON.stringify(vetUpdate)).then((req) => {
+    makeRequest("PUT", `${baseUrl}vets/${id}`, JSON.stringify(vetUpdate)).then((req) => {
         console.log("Vet updated!");
     }).catch(() => { console.log("Vet didn't update.") });
 }
@@ -41,44 +43,49 @@ function updateVet(id, vetUpdate) {
 function get(url, id) {
     makeRequest("GET", `${urlBase}${url}/${id}`).then((req) => {
         console.log("It worked!");
+        return req.responseText;
     }).catch(() => { console.log("Didn't work.") });
 }
 
+function getAll(url) {
+    makeRequest("GET", `${urlBase}${url}`).then((req) => {
+        console.log("It worked!");
+        return req.responseText;
+    }).catch(() => { 
+        console.log("Didn't work.") });
+}
+
 function getSpeciality(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/api/specialities/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}specialities/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getPet(id) {
-
-    makeRequest("GET", `http://localhost:9966/petclinic/api/pets/${id}`).then((req) => {
-
+    makeRequest("GET", `${baseUrl}pets/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getPetType(id) {
-
-    makeRequest("GET", `http://localhost:9966/petclinic/api/pettypes/${id}`).then((req) => {
-
+    makeRequest("GET", `${baseUrl}pettypes/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getOwner(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/api/owners/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}owners/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 function getVisits(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/api/visits/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}visits/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getVet(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/api/vets/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}vets/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
@@ -88,42 +95,42 @@ function getVet(id) {
 //====POST REQUESTS=====
 function postOwner() {
     let anOwner = createOwner();
-    makeRequest("POST", "http://localhost:9966/petclinic/api/owners/", JSON.stringify(anOwner)).then((req) => {
+    makeRequest("POST", `${baseUrl}/owners/`, JSON.stringify(anOwner)).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function postSpeciality() {
     let aSpeciality = createSpecialties();
-    makeRequest("POST", "http://localhost:9966/petclinic/api/specialties", JSON.stringify(aSpeciality)).then((req) => {
+    makeRequest("POST", `${baseUrl}specialties`, JSON.stringify(aSpeciality)).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function postVisit() {
     let aVisit = createVisits();
-    makeRequest("POST", "http://localhost:9966/petclinic/api/visits/", JSON.stringify(aVisit)).then((req) => {
+    makeRequest("POST", `${baseUrl}visits/`, JSON.stringify(aVisit)).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function postPet() {
     let aPet = createPets();
-    makeRequest("POST", "http://localhost:9966/petclinic/api/pets/", JSON.stringify(aPet)).then((req) => {
+    makeRequest("POST", `${baseUrl}pets/`, JSON.stringify(aPet)).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function postVet() {
     let aVet = createVet();
-    makeRequest("POST", "http://localhost:9966/petclinic/api/vets/", JSON.stringify(aVet)).then((req) => {
+    makeRequest("POST", `${baseUrl}vets/`, JSON.stringify(aVet)).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function postPetType() {
     let aType = createType();
-    makeRequest("POST", "http://localhost:9966/petclinic/api/pettypes/", JSON.stringify(aType)).then((req) => {
+    makeRequest("POST", `${baseUrl}pettypes/`, JSON.stringify(aType)).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
@@ -132,7 +139,7 @@ function postPetType() {
 //====DELETE REQUESTS====
 function deleteOwner() {
     let ownerID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/owners/" + ownerID;
+    let url = `${baseUrl}owners/` + ownerID;
     makeRequest("DELETE", url).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
@@ -140,7 +147,7 @@ function deleteOwner() {
 
 function deletePet() {
     let petID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/pets/" + petID;
+    let url = `${baseUrl}pets/` + petID;
     makeRequest("DELETE", url).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
@@ -148,7 +155,7 @@ function deletePet() {
 
 function deletePetType() {
     let petTypeID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/pettypes/" + petTypeID;
+    let url = `${baseUrl}pettypes/` + petTypeID;
     makeRequest("DELETE", url).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
@@ -156,7 +163,7 @@ function deletePetType() {
 
 function deleteSpeciality() {
     let specialityID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/specialties/" + specialityID;
+    let url = `${baseUrl}specialties/` + specialityID;
     makeRequest("DELETE", url).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
@@ -164,7 +171,7 @@ function deleteSpeciality() {
 
 function deleteVet() {
     let vetID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/vets/" + vetID;
+    let url = `${baseUrl}vets/` + vetID;
     makeRequest("DELETE", url).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
@@ -172,13 +179,14 @@ function deleteVet() {
 
 function deleteVisit() {
     let visitID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/visits/" + visitID;
+    let url = `${baseUrl}visits/` + visitID;
     makeRequest("DELETE", url).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 //================
+
 
 
 //====OBJECT CREATORS====
@@ -236,10 +244,9 @@ function createPets() {
 
 function createType() {
     const aType = {
-
         id: id.value,
         name: name.value
-    }
+    };
     return aType;
 }
 
@@ -250,9 +257,5 @@ function createVisits() {
         description: description.value,
         id: id.value,
         pet: pet.value
-
-    }
-    return visits;
+    };
 }
-
-

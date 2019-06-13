@@ -20,7 +20,7 @@
 
     <form>
         <h2>View All Owners</h2>
-        <input type="button" onclick="" value="Show all owners">
+        <input type="button" onclick='onPressGetAll("owners")' value="Show all owners">
         <div id="viewAllOwnersNotification">
         </div>
     </form>
@@ -30,7 +30,7 @@
         <h2>View An Owner</h2>
         Owner ID: 
         <input id="ownerID" type="number" placeholder="enter owner ID">
-        <input type="button" onclick="" value="Show owner">
+        <input type="button" onclick="get('owners','ownerID')" value="Show owner">
         <input type="button" onclick="" value="Show this owner's pets">
         <div id="viewOwnerNotification">
     </form>
@@ -105,8 +105,7 @@
         <input type="submit" onclick="" value="update vet">
         <div id="updateVetNotification">
     </form>
-    <hr>
-   
+    <hr>   
     <script src="XMLHttpRequests.js"> </script>
 
 </body>
