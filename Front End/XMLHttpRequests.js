@@ -1,3 +1,4 @@
+
 function makeRequest(requestType, url, sendData) {
     return new Promise((res, rej) => {
         let req = new XMLHttpRequest();
@@ -14,13 +15,11 @@ function makeRequest(requestType, url, sendData) {
     });
 }
 
+
+
 function createOwner() {
-    
-    let pets = createPets
 
     const anOwner = {
-
-
 
         address: address.value,
         city: city.value,
