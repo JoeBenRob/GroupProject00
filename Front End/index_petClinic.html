@@ -5,6 +5,7 @@
 </link>
 
 <head>
+        
    <pTitle>
        <h1>Matts Pet Clinic</h1>
    </pTitle>
@@ -42,7 +43,7 @@
     <form>
         <h2>Delete Unit</h2>
         Visit ID: 
-        <input id="idToDelete" type="number" placeholder="enter visit ID">
+        <input id="idToDelete" type="text" placeholder="enter visit ID">
         <input type="button" onclick="deleteVisit()" value="delete visit">
         <input type="button" onclick="deletePet()" value="delete pet">
         <input type="button" onclick="deleteVet()" value="delete vet">
@@ -64,7 +65,7 @@
         <input id="ownerCity" type="text" placeholder="enter city">
         Phone number:
         <input id="ownerPhone" type="text" placeholder="enter phone number">
-        <input type="button" onclick="" value="add owner">
+        <input type="button" onclick="createOwner()" value="add owner">
         <div id="addOwnerNotification">
     </form>
     <hr>
@@ -99,8 +100,8 @@
         <div id="updateVetNotification">
     </form>
     <hr>
+   
     <script> src="XMLHttpRequests.js" </script>
-
 </body>
 
 </html>
