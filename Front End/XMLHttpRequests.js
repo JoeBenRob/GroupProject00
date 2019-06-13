@@ -38,6 +38,12 @@ function updateVet(id, vetUpdate) {
 //================
 
 //====GET REQUESTS====
+function get(url, id){
+    makeRequest("GET", `${urlBase}${url}/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
 function getSpeciality(id) {
     makeRequest("GET", `http://localhost:9966/petclinic/specialities/${id}`).then((req) => {
         console.log("It worked!");
@@ -172,9 +178,13 @@ function deleteVisit() {
 
 //====OBJECT CREATION====
 
-function createVet(firstName, lastName, specialityIDs) {
 
-    let specialities = createSpecialties(specialityIDs);
+
+
+
+//====OBJECT CREATORS====
+function createVet(firstName, lastName, specialityIDs) {
+    let specialities = createSpecialities(specialityIDs);
 
     const vet = {
 
@@ -182,7 +192,6 @@ function createVet(firstName, lastName, specialityIDs) {
         lastName: lastName,
         specialities: specialities
     };
-
     return vet;
 }
 
@@ -195,12 +204,10 @@ function createSpecialties(specialityIDs) {
 }
 
 function createOwner() {
-
     let pets = createPets();
 
 
     const anOwner = {
-
         address: address.value,
         city: city.value,
         firstname: fistname.value,
@@ -213,12 +220,10 @@ function createOwner() {
 }
 
 function createPets() {
-
     let type = createType();
     let visits = createVisits();
 
     const aPet = {
-
         birthDate: birthdate.value,
         id: id.value,
         name: name.value,
@@ -247,6 +252,58 @@ function createVisits() {
         pet: pet.value
     }
 
+
 }
 
+
 //================
+
+function deleteOwner() {
+    let ownerID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/owners/" + ownerID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deletePet() {
+    let petID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/pets/" + petID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deletePetType() {
+    let petTypeID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/pettypes/" + petTypeID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deleteSpeciality() {
+    let specialityID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/specialties/" + specialityID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deleteVet() {
+    let vetID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/vets/" + vetID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deleteVisit() {
+    let visitID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/visits/" + visitID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+
+}
+
+    return visits;
+}
+//=======================
+
