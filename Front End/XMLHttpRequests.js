@@ -51,13 +51,17 @@ function getSpeciality(id) {
 }
 
 function getPet(id) {
+
     makeRequest("GET", `http://localhost:9966/petclinic/api/pets/${id}`).then((req) => {
+
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getPetType(id) {
+
     makeRequest("GET", `http://localhost:9966/petclinic/api/pettypes/${id}`).then((req) => {
+
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
@@ -176,7 +180,9 @@ function deleteVisit() {
 
 //================
 
+
 //====OBJECT CREATORS====
+
 function createVet(firstName, lastName, specialityIDs) {
     let specialities = createSpecialities(specialityIDs);
 
@@ -244,6 +250,7 @@ function createVisits() {
         description: description.value,
         id: id.value,
         pet: pet.value
+
 
     }
 
