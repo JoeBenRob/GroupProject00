@@ -66,6 +66,13 @@ function getVet(id) {
 }
 //====================
 
+
+function createOwner() {
+    let anOwner = createOwner();
+    makeRequest("POST", "http://localhost:9966/petclinic/api/owner/", JSON.stringify(anOwner))
+    .then(res => {console.log(res)});
+}
+
 function createVet(firstName, lastName, specialityIDs) {
 
     let specialities = createSpecialities(specialityIDs);
