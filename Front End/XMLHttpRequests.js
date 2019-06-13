@@ -1,4 +1,6 @@
+
 const urlBase = "http://localhost:9966/petclinic/api/";
+
 
 function makeRequest(requestType, url, sendData) {
     return new Promise((res, rej) => {
@@ -185,7 +187,10 @@ function deleteVisit() {
 
 //================
 
+
+
 //====OBJECT CREATORS====
+
 function createVet(firstName, lastName, specialityIDs) {
     let specialities = createSpecialities(specialityIDs);
 
@@ -254,4 +259,3 @@ function createVisits() {
         pet: pet.value
     };
 }
-//================
