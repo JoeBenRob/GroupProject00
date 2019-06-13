@@ -1,0 +1,28 @@
+{
+  "address": "string",
+  "city": "string",
+  "firstName": "string",
+  "id": 0,
+  "lastName": "string",
+  "pets": [
+    {
+      "birthDate": "2019-06-13T09:18:38.186Z",
+      "id": 0,
+      "name": "string",
+      "owner": {},
+      "type": {
+        "id": 0,
+        "name": "string"
+      },
+      "visits": [
+        {
+          "date": "yyyy/MM/dd",
+          "description": "string",
+          "id": 0,
+          "pet": {}
+        }
+      ]
+    }
+  ],
+  "telephone": "string"
+}
