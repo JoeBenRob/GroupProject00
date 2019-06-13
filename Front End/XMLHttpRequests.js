@@ -33,8 +33,10 @@ function onPressGetAll(url){
 
 function updateVet(id, vetUpdate) {
     makeRequest("PUT", `${urlBase}vets/${id}`, JSON.stringify(vetUpdate)).then((req) => {
+
         result.innerText = ("Vet updated!");
     }).catch(() => { result.innerText = ("Vet didn't update.") });
+
 }
 
 //================
@@ -57,37 +59,46 @@ function getAll(url) {
 
 function getSpeciality(id) {
     makeRequest("GET", `${urlBase}specialities/${id}`).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function getPet(id) {
     makeRequest("GET", `${urlBase}pets/${id}`).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function getPetType(id) {
     makeRequest("GET", `${urlBase}pettypes/${id}`).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function getOwner(id) {
     makeRequest("GET", `${urlBase}owners/${id}`).then((req) => {
-        result.innerText = (req.responseText);
+       result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
 }
 function getVisits(id) {
     makeRequest("GET", `${urlBase}visits/${id}`).then((req) => {
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function getVet(id) {
     makeRequest("GET", `${urlBase}vets/${id}`).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 //================
 
@@ -96,43 +107,55 @@ function getVet(id) {
 function postOwner() {
     let anOwner = createOwner();
     makeRequest("POST", `${urlBase}/owners/`, JSON.stringify(anOwner)).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function postSpeciality() {
     let aSpeciality = createSpecialties();
     makeRequest("POST", `${urlBase}specialties`, JSON.stringify(aSpeciality)).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function postVisit() {
     let aVisit = createVisits();
     makeRequest("POST", `${urlBase}visits/`, JSON.stringify(aVisit)).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function postPet() {
     let aPet = createPets();
     makeRequest("POST", `${urlBase}pets/`, JSON.stringify(aPet)).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function postVet() {
     let aVet = createVet();
     makeRequest("POST", `${urlBase}vets/`, JSON.stringify(aVet)).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 
 function postPetType() {
     let aType = createType();
     makeRequest("POST", `${urlBase}pettypes/`, JSON.stringify(aType)).then((req) => {
+
         result.innerText = (req.responseText);
     }).catch(() => { result.innerText = ("Didn't work.") });
+
 }
 //================
 
