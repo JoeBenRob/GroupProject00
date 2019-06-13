@@ -17,6 +17,53 @@ function makeRequest(requestType, url, sendData) {
 
 
 
+//Function called by button
+function onPressUpdateVet(id, info){
+    let vet = vetMaker(info);
+    updateVet(id, vet);
+}
+
+//Make put request for vet
+function updateVet(id, vetUpdate) {
+    makeRequest("PUT", `http://localhost:9966/petclinic/vets/${id}`, vetUpdate).then((req) => {
+        console.log("Vet updated!");
+    }).catch(() => { console.log("Vet didn't update.") });
+}
+
+//Create vet object
+function vetMaker(firstName, lastName, specialityIDs) {
+    let specialities = specialitiesMaker(specialityIDs);
+
+    const vet = {
+        firstName: firstName,
+        lastName: lastName,
+        specialities: specialities
+    };
+
+    return vet;
+}
+
+//Create specialities for vet
+function specialitiesMaker(specialityIDs) {
+    let specialities = [];
+    for(let i = 0; i < specialityIDs; i++){
+        specialities.push(JSON.parse(getSpeciality(specialityIDs[i])));
+    }
+    return specialities;
+}
+
+//Make get request for speciality
+function getSpeciality(id) {
+    makeRequest("GET", `http://localhost:9966/petclinic/specialities/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function createOwner() {
+    
+    let pets = createPets
+
+
 function createOwner() {
 
     const anOwner = {
@@ -57,4 +104,34 @@ function createVisits() {
         id: id.value,
         pet: pet.value
     }
+}
+
+function deleteOwner() {
+    // require owner box with ID = ownerBox for argument
+    let ownerID = document.getElementById("ownerBox").value
+    let url = "http://localhost:8080/petclinic/api/owners/" + ownerID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deletePet() {
+    // require owner box with ID = petBox for argument
+    let petID = document.getElementById("petBox").value
+    let url = "http://localhost:8080/petclinic/api/pets/" + petID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deletePetType() {
+    // require owner box with ID = petBox for argument
+    let petTypeID = document.getElementById("petBox").value
+    let url = "http://localhost:8080/petclinic/api/pettypes/" + petTypeID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+
+
+
+
 }
