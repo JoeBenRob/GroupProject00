@@ -1,4 +1,7 @@
+
+
 const urlBase = "http://localhost:9966/petclinic/";
+
 
 function makeRequest(requestType, url, sendData) {
     return new Promise((res, rej) => {
@@ -15,6 +18,8 @@ function makeRequest(requestType, url, sendData) {
         req.send(sendData);
     });
 }
+
+
 
 //Function called by button
 function onPressUpdateVet(id, firstName, lastName, specIDs) {
@@ -92,6 +97,7 @@ function createOwner() {
 
     let pets = createPets();
 
+
     const anOwner = {
 
         address: address.value,
@@ -139,5 +145,50 @@ function createVisits() {
         id: id.value,
         pet: pet.value
     }
-    return visits;
+
+}
+
+function deleteOwner() {
+    let ownerID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/owners/" + ownerID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deletePet() {
+    let petID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/pets/" + petID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deletePetType() {
+    let petTypeID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/pettypes/" + petTypeID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deleteSpeciality() {
+    let specialityID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/specialties/" + specialityID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deleteVet() {
+    let vetID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/vets/" + vetID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+function deleteVisit() {
+    let visitID = document.getElementById("idToDelete").value
+    let url = "http://localhost:9966/petclinic/api/visits/" + visitID;
+    multi("DELETE", url)
+    .then(res => { console.log(res) });
+}
+
+
 }
