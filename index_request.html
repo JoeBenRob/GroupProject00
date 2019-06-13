@@ -1,0 +1,54 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="styleAccount.css" type="text/css"></link>
+  <body>
+    <p1>Accounts</p1>
+
+
+    <form>
+      <div>
+      <input type="button" onclick="onGetAllAccountsClicked()" value="Get all Accounts"
+        <button class="btn btn-primary" Click </button></input>
+      </div>
+    </form>
+
+    <form> 
+      <div>
+        Get Account with id: <input type="number" id="idNum" class="number"><br>
+        <input type="button" onclick="onGetAnAccountClicked()" value="Get an Account"
+          <button class="btn btn-primary" Click </button></input>
+      </div>
+    </form>
+
+    <form>
+      <div>
+        Create Account Number: <input type="number" id="accountNum" ><br>
+        Input First Name: <input type="text" id="fName" ><br>
+        Input Last Name: <input type="text" id="lName" ><br>
+        <input type="button" onclick="onGetCreateAccountClicked()" value="Create an Account"
+          <button class="btn btn-primary" Click </button></input>
+      </div>
+    </form>
+
+    <form>
+      <div>
+          Delete Account with id: <input type="number" id="idDelete" class="number"><br>
+        <input type="button" onclick="onDeleteAccountClicked()" value="Delete an Account"
+          <button class="btn btn-primary" Click </buttom></input>
+      </div>
+    </form>
+
+      <!--<div>
+        <input type="button" onclick="updateAccount(idNum)" value="Update an Account"
+          <button class="btn btn-primary" Click </buttom></input>
+      </div>  -->
+
+
+    <p>Result =
+      <span id="result"></span>
+    </p>
+
+    <script src="XMLHHpRequest.js"></script>
+  </body>
+</link>
+</html>
