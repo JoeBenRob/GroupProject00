@@ -1,6 +1,5 @@
 const urlBase = "http://localhost:9966/petclinic/api/";
 
-
 function makeRequest(requestType, url, sendData) {
     return new Promise((res, rej) => {
         let req = new XMLHttpRequest();
@@ -23,12 +22,20 @@ function onPressUpdateVet(id, firstName, lastName, specIDs) {
     updateVet(id, vet);
 }
 
-//Make put request for vet
+function onPressGetAll(url){
+    getAll(url);
+}
+//================
+
+//====PUT REQUESTS====
+
 function updateVet(id, vetUpdate) {
     makeRequest("PUT", `${baseUrl}vets/${id}`, JSON.stringify(vetUpdate)).then((req) => {
         console.log("Vet updated!");
     }).catch(() => { console.log("Vet didn't update.") });
 }
+
+//================
 
 //====GET REQUESTS====
 function get(url, id) {
@@ -47,47 +54,143 @@ function getAll(url) {
 }
 
 function getSpeciality(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/specialities/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}specialities/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getPet(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/pets/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}pets/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getPetType(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/pettypes/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}pettypes/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getOwner(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/owners/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}owners/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 function getVisits(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/visits/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}visits/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
 
 function getVet(id) {
-    makeRequest("GET", `http://localhost:9966/petclinic/vets/${id}`).then((req) => {
+    makeRequest("GET", `${baseUrl}vets/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
-//====================
+//================
 
+
+//====POST REQUESTS=====
+function postOwner() {
+    let anOwner = createOwner();
+    makeRequest("POST", `${baseUrl}/owners/`, JSON.stringify(anOwner)).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function postSpeciality() {
+    let aSpeciality = createSpecialties();
+    makeRequest("POST", `${baseUrl}specialties`, JSON.stringify(aSpeciality)).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function postVisit() {
+    let aVisit = createVisits();
+    makeRequest("POST", `${baseUrl}visits/`, JSON.stringify(aVisit)).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function postPet() {
+    let aPet = createPets();
+    makeRequest("POST", `${baseUrl}pets/`, JSON.stringify(aPet)).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function postVet() {
+    let aVet = createVet();
+    makeRequest("POST", `${baseUrl}vets/`, JSON.stringify(aVet)).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function postPetType() {
+    let aType = createType();
+    makeRequest("POST", `${baseUrl}pettypes/`, JSON.stringify(aType)).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+//================
+
+//====DELETE REQUESTS====
+function deleteOwner() {
+    let ownerID = document.getElementById("idToDelete").value
+    let url = `${baseUrl}owners/` + ownerID;
+    makeRequest("DELETE", url).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function deletePet() {
+    let petID = document.getElementById("idToDelete").value
+    let url = `${baseUrl}pets/` + petID;
+    makeRequest("DELETE", url).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function deletePetType() {
+    let petTypeID = document.getElementById("idToDelete").value
+    let url = `${baseUrl}pettypes/` + petTypeID;
+    makeRequest("DELETE", url).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function deleteSpeciality() {
+    let specialityID = document.getElementById("idToDelete").value
+    let url = `${baseUrl}specialties/` + specialityID;
+    makeRequest("DELETE", url).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function deleteVet() {
+    let vetID = document.getElementById("idToDelete").value
+    let url = `${baseUrl}vets/` + vetID;
+    makeRequest("DELETE", url).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function deleteVisit() {
+    let visitID = document.getElementById("idToDelete").value
+    let url = `${baseUrl}visits/` + visitID;
+    makeRequest("DELETE", url).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") }); 
+}
+
+//================
 
 //====OBJECT CREATORS====
 function createVet(firstName, lastName, specialityIDs) {
     let specialities = createSpecialities(specialityIDs);
 
     const vet = {
+
         firstName: firstName,
         lastName: lastName,
         specialities: specialities
@@ -95,7 +198,7 @@ function createVet(firstName, lastName, specialityIDs) {
     return vet;
 }
 
-function createSpecialities(specialityIDs) {
+function createSpecialties(specialityIDs) {
     let specialities = [];
     for (let i = 0; i < specialityIDs; i++) {
         specialities.push(JSON.parse(getSpeciality(specialityIDs[i])));
@@ -151,46 +254,4 @@ function createVisits() {
         pet: pet.value
     };
 }
-
-function deleteOwner() {
-    let ownerID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/owners/" + ownerID;
-    multi("DELETE", url)
-        .then(res => { console.log(res) });
-}
-
-function deletePet() {
-    let petID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/pets/" + petID;
-    multi("DELETE", url)
-        .then(res => { console.log(res) });
-}
-
-function deletePetType() {
-    let petTypeID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/pettypes/" + petTypeID;
-    multi("DELETE", url)
-        .then(res => { console.log(res) });
-}
-
-function deleteSpeciality() {
-    let specialityID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/specialties/" + specialityID;
-    multi("DELETE", url)
-        .then(res => { console.log(res) });
-}
-
-function deleteVet() {
-    let vetID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/vets/" + vetID;
-    multi("DELETE", url)
-        .then(res => { console.log(res) });
-}
-
-function deleteVisit() {
-    let visitID = document.getElementById("idToDelete").value
-    let url = "http://localhost:9966/petclinic/api/visits/" + visitID;
-    multi("DELETE", url)
-        .then(res => { console.log(res) });
-}
-//=======================
+//================
