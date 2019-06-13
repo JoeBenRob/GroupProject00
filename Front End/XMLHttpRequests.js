@@ -15,19 +15,15 @@ function makeRequest(requestType, url, sendData) {
 }
 
 function createOwner() {
-    
-    let pets = createPets
 
     const anOwner = {
-
-
 
         address: address.value,
         city: city.value,
         firstname: fistname.value,
         id: id.value,
         lastName: lastName.value,
-        //pets:
+        pets: pets.value,
         telephone: telephone.value
 
     }
@@ -36,6 +32,7 @@ function createOwner() {
 
 function createPets() {
     const aPet = {
+
         birthDate: birthdate.value,
         id: id.value,
         name: name.value,
@@ -46,6 +43,7 @@ function createPets() {
 
 function createType() {
     const aType = {
+
         id: id.value,
         name: name.value
     }
@@ -53,6 +51,7 @@ function createType() {
 
 function createVisits() {
     const aVisits = {
+
         date: date.value,
         description: description.value,
         id: id.value,
