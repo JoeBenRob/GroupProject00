@@ -40,10 +40,13 @@
     <hr>
 
     <form>
-        <h2>Delete Visit</h2>
+        <h2>Delete Unit</h2>
         Visit ID: 
         <input id="idToDelete" type="number" placeholder="enter visit ID">
         <input type="button" onclick="deleteVisit()" value="delete visit">
+        <input type="button" onclick="deletePet()" value="delete pet">
+        <input type="button" onclick="deleteVet()" value="delete vet">
+        <input type="button" onclick="deleteOwner()" value="delete owner">
         <div id="deleteVisitNotification">
     </form>
     <hr>
@@ -96,7 +99,7 @@
         <div id="updateVetNotification">
     </form>
     <hr>
-    <script>XMLHttpRequests.js</script>
+    <script> src="XMLHttpRequests.js" </script>
 
 </body>
 
