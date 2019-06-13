@@ -295,8 +295,6 @@ function deleteVet() {
 
 
 
-
-
 function deleteVisit() {
     let visitID = document.getElementById("idToDelete").value
     let url = "http://localhost:9966/petclinic/api/visits/" + visitID;
