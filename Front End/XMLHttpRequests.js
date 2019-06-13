@@ -261,43 +261,50 @@ function createVisits() {
 function deleteOwner() {
     let ownerID = document.getElementById("idToDelete").value
     let url = "http://localhost:9966/petclinic/api/owners/" + ownerID;
-    multi("DELETE", url)
+    makeRequest("DELETE", url)
     .then(res => { console.log(res) });
 }
 
 function deletePet() {
     let petID = document.getElementById("idToDelete").value
     let url = "http://localhost:9966/petclinic/api/pets/" + petID;
-    multi("DELETE", url)
+    makeRequest("DELETE", url)
     .then(res => { console.log(res) });
 }
 
 function deletePetType() {
     let petTypeID = document.getElementById("idToDelete").value
     let url = "http://localhost:9966/petclinic/api/pettypes/" + petTypeID;
-    multi("DELETE", url)
+    makeRequest("DELETE", url)
     .then(res => { console.log(res) });
 }
 
 function deleteSpeciality() {
     let specialityID = document.getElementById("idToDelete").value
     let url = "http://localhost:9966/petclinic/api/specialties/" + specialityID;
-    multi("DELETE", url)
+    makeRequest("DELETE", url)
     .then(res => { console.log(res) });
 }
 
 function deleteVet() {
     let vetID = document.getElementById("idToDelete").value
     let url = "http://localhost:9966/petclinic/api/vets/" + vetID;
-    multi("DELETE", url)
+    makeRequest("DELETE", url)
     .then(res => { console.log(res) });
 }
+
+
+
+
 
 function deleteVisit() {
     let visitID = document.getElementById("idToDelete").value
     let url = "http://localhost:9966/petclinic/api/visits/" + visitID;
     multi("DELETE", url)
     .then(res => { console.log(res) });
+
+
+
 }
 
 
@@ -306,4 +313,5 @@ function deleteVisit() {
     return visits;
 }
 //=======================
+
 
