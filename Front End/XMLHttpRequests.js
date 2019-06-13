@@ -1,3 +1,5 @@
+const urlBase = "http://localhost:9966/petclinic/";
+
 function makeRequest(requestType, url, sendData) {
     return new Promise((res, rej) => {
         let req = new XMLHttpRequest();
@@ -15,14 +17,14 @@ function makeRequest(requestType, url, sendData) {
 }
 
 //Function called by button
-function onPressUpdateVet(id, info){
-    let vet = vetMaker(info);
+function onPressUpdateVet(id, firstName, lastName, specIDs){
+    let vet = vetMaker(firstName, lastName, specIDs);
     updateVet(id, vet);
 }
 
 //Make put request for vet
 function updateVet(id, vetUpdate) {
-    makeRequest("PUT", `http://localhost:9966/petclinic/vets/${id}`, vetUpdate).then((req) => {
+    makeRequest("PUT", `http://localhost:9966/petclinic/vets/${id}`, JSON.stringify(vetUpdate)).then((req) => {
         console.log("Vet updated!");
     }).catch(() => { console.log("Vet didn't update.") });
 }
@@ -49,12 +51,43 @@ function specialitiesMaker(specialityIDs) {
     return specialities;
 }
 
-//Make get request for speciality
+//====GET REQUESTS====
 function getSpeciality(id) {
     makeRequest("GET", `http://localhost:9966/petclinic/specialities/${id}`).then((req) => {
         console.log("It worked!");
     }).catch(() => { console.log("Didn't work.") });
 }
+
+function getPet(id){
+    makeRequest("GET", `http://localhost:9966/petclinic/pets/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function getPetType(id){
+    makeRequest("GET", `http://localhost:9966/petclinic/pettypes/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function getOwner(id){
+    makeRequest("GET", `http://localhost:9966/petclinic/owners/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+function getVisits(id){
+    makeRequest("GET", `http://localhost:9966/petclinic/visits/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
+function getVet(id){
+    makeRequest("GET", `http://localhost:9966/petclinic/vets/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+//====================
+
 
 function createOwner() {
     
