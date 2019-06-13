@@ -35,6 +35,12 @@ function updateVet(id, vetUpdate) {
 }
 
 //====GET REQUESTS====
+function get(url, id){
+    makeRequest("GET", `${urlBase}${url}/${id}`).then((req) => {
+        console.log("It worked!");
+    }).catch(() => { console.log("Didn't work.") });
+}
+
 function getSpeciality(id) {
     makeRequest("GET", `http://localhost:9966/petclinic/specialities/${id}`).then((req) => {
         console.log("It worked!");
@@ -71,17 +77,16 @@ function getVet(id) {
 }
 //====================
 
-function createVet(firstName, lastName, specialityIDs) {
 
+//====OBJECT CREATORS====
+function createVet(firstName, lastName, specialityIDs) {
     let specialities = createSpecialities(specialityIDs);
 
     const vet = {
-        
         firstName: firstName,
         lastName: lastName,
         specialities: specialities
     };
-
     return vet;
 }
 
@@ -94,12 +99,10 @@ function createSpecialities(specialityIDs) {
 }
 
 function createOwner() {
-
     let pets = createPets();
 
 
     const anOwner = {
-
         address: address.value,
         city: city.value,
         firstname: fistname.value,
@@ -112,12 +115,10 @@ function createOwner() {
 }
 
 function createPets() {
-
     let type = createType();
     let visits = createVisits();
 
     const aPet = {
-
         birthDate: birthdate.value,
         id: id.value,
         name: name.value,
@@ -145,6 +146,7 @@ function createVisits() {
         id: id.value,
         pet: pet.value
     }
+
 
 }
 
@@ -192,3 +194,7 @@ function deleteVisit() {
 
 
 }
+
+    return visits;
+}
+//=======================
