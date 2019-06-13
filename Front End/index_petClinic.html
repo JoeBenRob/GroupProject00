@@ -1,52 +1,62 @@
 <html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css">
+</link>
 
 <head>
-
+    <pTitle>
+        <h1>Matts Pet Clinic</h1>
+    </pTitle>
 </head>
 
 <body>
-    <form>
-        <h1>View All Owners</h1>
-        <input type="button" onclick="" value="Show all owners">
-        <div id="viewAllOwnersNotification">
+    <div class="grid-container">
+        <div class="grid-item-owner">
+            <form>
+                <h2>View All Owners</h2>
+                <input type="button" onclick="" value="Show all owners">
+                <div id="viewAllOwnersNotification">
+                </div>
+            </form>
+            <hr>
+
+
+
+            <form>
+                <h2>View An Owner</h2> <input id="ownerID" type="number" placeholder="enter owner ID">
+                <input type="button" onclick="" value="Show owner">
+                <input type="button" onclick="" value="Show this owner's pets">
+                <div id="viewOwnerNotification">
+            </form>
+            <hr>
+
+
+            <form>
+                <h2>Add an owner</h2> <input id="petID" type="number" placeholder="enter pet ID">
+                <input type="button" onclick="" value="Show visits">
+                <div id="viewVisitsByPetNotification">
+            </form>
+            <hr>
         </div>
-    </form>
-    <hr>
 
-    <form>
-        <h1>View An Owner</h1>
-        <input id="ownerID" type="number" placeholder="enter owner ID">
-        <input type="button" onclick="" value="Show owner">
-        <input type="button" onclick="" value="Show this owner's pets">
-        <div id="viewOwnerNotification">
-    </form>
+        <div class="grid-item-pet">
+            <form>
+                <h2>View Visits By Pet</h2> <input id="petID" type="number" placeholder="enter pet ID">
+                <input type="button" onclick="" value="Show visits">
+                <div id="viewVisitsByPetNotification">
+            </form>
+            <hr>
 
-    <hr>
+            <form>
+                <h2>View Visits By Pet</h2> <input id="petID" type="number" placeholder="enter pet ID">
+                <input type="button" onclick="" value="Show visits">
+                <div id="viewVisitsByPetNotification">
+            </form>
+            <hr>
+        </div>
 
-    <form>
-        <h1>View Visits By Pet</h1>
-        <input id="petID" type="number" placeholder="enter pet ID">
-        <input type="button" onclick="" value="Show visits">
-        <div id="viewVisitsByPetNotification">
-    </form>
-    <hr>
-
-    <form>
-        <h1>Add an owner</h1>
-        <input id="petID" type="number" placeholder="enter pet ID">
-        <input type="button" onclick="" value="Show visits">
-        <div id="viewVisitsByPetNotification">
-    </form>
-    <hr>
-
-    <form>
-        <h1>View Visits By Pet</h1>
-        <input id="petID" type="number" placeholder="enter pet ID">
-        <input type="button" onclick="" value="Show visits">
-        <div id="viewVisitsByPetNotification">
-    </form>
-    <hr>
-
+    </div>
 </body>
 
 </html>
