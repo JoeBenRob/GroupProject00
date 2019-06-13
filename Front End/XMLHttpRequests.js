@@ -251,9 +251,8 @@ function createVisits() {
         id: id.value,
         pet: pet.value
 
-
     }
-
     return visits;
 }
+
 
