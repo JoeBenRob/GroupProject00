@@ -1,23 +1,16 @@
 <html>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-
    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 <link rel="stylesheet" href="style.css" type="text/css">
 </link>
-
 <head>
-
         
    <pTitle>
        <h1>Matts Pet Clinic</h1>
    </pTitle>
-
 </head>
 <hr>
-
 <body>
-
     <form>
         <h2>View All Owners</h2>
         <input type="button" onclick='onPressGetAll("owners")' value="Show all owners">
@@ -25,7 +18,6 @@
         </div>
     </form>
     <hr>
-
     <form>
         <h2>View An Owner</h2>
         Owner ID: 
@@ -35,7 +27,6 @@
         <div id="viewOwnerNotification">
     </form>
     <hr>
-
     <form>
         <h2>View Visits By Pet</h2>
         Pet ID: 
@@ -44,7 +35,6 @@
         <div id="viewVisitsByPetNotification">
     </form>
     <hr>
-
     <form>
         <h2>Delete Unit</h2>
         Visit ID: 
@@ -57,7 +47,6 @@
     </form>
     <hr>
     
-
     <form class="addingForm">
         <h2>Add Owner</h2>
         First Name:
@@ -75,8 +64,6 @@
         <div id="addOwnerNotification">
     </form>
     <hr>
-
-
     <form class="addingForm"> 
         <h2>Add Pet</h2>
         Name: 
@@ -91,7 +78,6 @@
         <div id="addPetNotification">
     </form>
     <hr>
-
     <form onsubmit="" class="addingForm">
         <h2>Update Vet</h2>
         Vet ID (required): 
@@ -102,12 +88,31 @@
         <input id="vetLName" type="text" placeholder="enter last name">
         Speciality: 
         <input id="speciality" type="text" placeholder="enter speciality">
-        <input type="submit" onclick="" value="update vet">
+        <input type="submit" value="update vet">
         <div id="updateVetNotification">
     </form>
     <hr>   
+    <form onsubmit="" class="addingForm">
+        <h2>Update Owner</h2>
+        Vet ID (required): 
+        <input id="vetID" type="number" placeholder="enter vet ID" required>
+        First Name: 
+        <input id="vetFName" type="text" placeholder="enter first name">
+        Last Name: 
+        <input id="vetLName" type="text" placeholder="enter last name">
+        Speciality: 
+        <input id="speciality" type="text" placeholder="enter speciality">
+        <input type="submit" value="update vet">
+        <div id="updateVetNotification">
+    </form>
+    <hr> 
+    
+    <div>
+    <p2 >Result =
+        <span id="result">
+        </span>
+    </p2>
+    </div>
     <script src="XMLHttpRequests.js"> </script>
-
 </body>
-
 </html>
