@@ -1,12 +1,19 @@
 <html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css">
+</link>
 
 <head>
-
+   <pTitle>
+       <h1>Matts Pet Clinic</h1>
+   </pTitle>
 </head>
+<hr>
 
 <body>
     <form>
-        <h1>View All Owners</h1>
+        <h2>View All Owners</h2>
         <input type="button" onclick="" value="Show all owners">
         <div id="viewAllOwnersNotification">
         </div>
@@ -14,17 +21,18 @@
     <hr>
 
     <form>
-        <h1>View An Owner</h1>
+        <h2>View An Owner</h2>
+        Owner ID: 
         <input id="ownerID" type="number" placeholder="enter owner ID">
         <input type="button" onclick="" value="Show owner">
         <input type="button" onclick="" value="Show this owner's pets">
         <div id="viewOwnerNotification">
     </form>
-
     <hr>
 
     <form>
-        <h1>View Visits By Pet</h1>
+        <h2>View Visits By Pet</h2>
+        Pet ID: 
         <input id="petID" type="number" placeholder="enter pet ID">
         <input type="button" onclick="" value="Show visits">
         <div id="viewVisitsByPetNotification">
@@ -32,18 +40,60 @@
     <hr>
 
     <form>
-        <h1>Add an owner</h1>
-        <input id="petID" type="number" placeholder="enter pet ID">
-        <input type="button" onclick="" value="Show visits">
-        <div id="viewVisitsByPetNotification">
+        <h2>Delete Visit</h2>
+        Visit ID: 
+        <input id="visitID" type="number" placeholder="enter visit ID">
+        <input type="button" onclick="" value="delete visit">
+        <div id="deleteVisitNotification">
     </form>
     <hr>
 
     <form>
-        <h1>View Visits By Pet</h1>
-        <input id="petID" type="number" placeholder="enter pet ID">
-        <input type="button" onclick="" value="Show visits">
-        <div id="viewVisitsByPetNotification">
+        <h2>Add Owner</h2>
+        First Name:
+        <input id="ownerFName" type="text" placeholder="enter first name">
+        Last Name:
+        <input id="ownerLName" type="text" placeholder="enter last name">
+        <br>
+        Address:
+        <input id="ownerAddress" type="text" placeholder="enter first line of address">
+        City:
+        <input id="ownerCity" type="text" placeholder="enter city">
+        Phone number:
+        <input id="ownerPhone" type="text" placeholder="enter phone number">
+        <input type="button" onclick="" value="add owner">
+        <div id="addOwnerNotification">
+    </form>
+    <hr>
+
+
+    <form>
+        <h2>Add Pet</h2>
+        Name: 
+        <input id="petName" type="text" placeholder="enter name">
+        Birthday: 
+        <input id="petBirthday" type="date">
+        Type: 
+        <input id="petType" type="text" placeholder="enter type">
+        Owner ID: 
+        <input id="petOwnerID" type="number" placeholder="enter owner ID">
+        <input type="button" onclick="" value="add pet">
+        <div id="addPetNotification">
+    </form>
+    <hr>
+
+    <form onsubmit="">
+        <h2>Update Vet</h2>
+        Vet ID (required): 
+        <input id="vetID" type="number" placeholder="enter vet ID" required>
+        First Name: 
+        <input id="vetFName" type="text" placeholder="enter first name">
+        Last Name: 
+        <input id="vetLName" type="text" placeholder="enter last name">
+        Speciality: 
+        <input id="speciality" type="text" placeholder="enter speciality">
+        <input type="submit" onclick="" value="update vet">
+        <div id="updateVetNotification">
     </form>
     <hr>
 
