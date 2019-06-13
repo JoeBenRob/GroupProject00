@@ -185,7 +185,9 @@ function deleteVisit() {
 
 //================
 
-//====OBJECT CREATORS====
+
+//====OBJECT CREATION====
+
 function createVet(firstName, lastName, specialityIDs) {
     let specialities = createSpecialities(specialityIDs);
 
@@ -254,4 +256,3 @@ function createVisits() {
         pet: pet.value
     };
 }
-//================
