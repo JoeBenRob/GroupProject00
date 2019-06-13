@@ -15,7 +15,7 @@ function makeRequest(requestType, url, sendData) {
 }
 
 //Function called by button
-function onPressUpdateVet(id, info){
+function onPressUpdateVet(id, info) {
     let vet = vetMaker(info);
     updateVet(id, vet);
 }
@@ -29,6 +29,7 @@ function updateVet(id, vetUpdate) {
 
 //Create vet object
 function vetMaker(firstName, lastName, specialityIDs) {
+
     let specialities = specialitiesMaker(specialityIDs);
 
     const vet = {
@@ -43,7 +44,7 @@ function vetMaker(firstName, lastName, specialityIDs) {
 //Create specialities for vet
 function specialitiesMaker(specialityIDs) {
     let specialities = [];
-    for(let i = 0; i < specialityIDs; i++){
+    for (let i = 0; i < specialityIDs; i++) {
         specialities.push(JSON.parse(getSpeciality(specialityIDs[i])));
     }
     return specialities;
@@ -58,6 +59,8 @@ function getSpeciality(id) {
 
 function createOwner() {
 
+    let pets = createPets();
+
     const anOwner = {
 
         address: address.value,
@@ -65,22 +68,27 @@ function createOwner() {
         firstname: fistname.value,
         id: id.value,
         lastName: lastName.value,
-        pets: pets.value,
+        pets: pets,
         telephone: telephone.value
-
     }
     return anOwner;
 }
 
 function createPets() {
+
+    let type = createType();
+    let visits = createVisits();
+
     const aPet = {
 
         birthDate: birthdate.value,
         id: id.value,
         name: name.value,
         owner: owner.value,
-        //type: type.value
+        type: type,
+        visits: visits
     }
+    return aPet;
 }
 
 function createType() {
@@ -89,6 +97,7 @@ function createType() {
         id: id.value,
         name: name.value
     }
+    return aType;
 }
 
 function createVisits() {
@@ -99,4 +108,5 @@ function createVisits() {
         id: id.value,
         pet: pet.value
     }
+    return visits;
 }
