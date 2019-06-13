@@ -13,3 +13,49 @@ function makeRequest(requestType, url, sendData) {
         req.send(sendData);
     });
 }
+
+function createOwner() {
+    
+    let pets = createPets
+
+    const anOwner = {
+
+
+
+        address: address.value,
+        city: city.value,
+        firstname: fistname.value,
+        id: id.value,
+        lastName: lastName.value,
+        //pets:
+        telephone: telephone.value
+
+    }
+    return anOwner;
+}
+
+function createPets() {
+    const aPet = {
+        birthDate: birthdate.value,
+        id: id.value,
+        name: name.value,
+        owner: owner.value,
+        //type: type.value
+    }
+}
+
+function createType() {
+    const aType = {
+        id: id.value,
+        name: name.value
+    }
+}
+
+function createVisits() {
+    const aVisits = {
+        date: date.value,
+        description: description.value,
+        id: id.value,
+        pet: pet.value
+    }
+}
