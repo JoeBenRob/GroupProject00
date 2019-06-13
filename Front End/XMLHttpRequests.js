@@ -1,4 +1,4 @@
-const urlBase = "http://localhost:9966/petclinic/";
+const urlBase = "http://localhost:9966/petclinic/api/";
 
 
 function makeRequest(requestType, url, sendData) {
@@ -25,7 +25,7 @@ function onPressUpdateVet(id, firstName, lastName, specIDs) {
 
 //Make put request for vet
 function updateVet(id, vetUpdate) {
-    makeRequest("PUT", `http://localhost:9966/petclinic/vets/${id}`, JSON.stringify(vetUpdate)).then((req) => {
+    makeRequest("PUT", `${baseUrl}vets/${id}`, JSON.stringify(vetUpdate)).then((req) => {
         console.log("Vet updated!");
     }).catch(() => { console.log("Vet didn't update.") });
 }
@@ -42,7 +42,8 @@ function getAll(url) {
     makeRequest("GET", `${urlBase}${url}`).then((req) => {
         console.log("It worked!");
         return req.responseText;
-    }).catch(() => { console.log("Didn't work.") });
+    }).catch(() => { 
+        console.log("Didn't work.") });
 }
 
 function getSpeciality(id) {
